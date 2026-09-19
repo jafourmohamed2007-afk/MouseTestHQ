@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f1115">
+<title>Keyboard Tester — Online Key Tester & Anti-Ghosting Check | MouseTestHQ</title>
+<meta name="description" content="Test every key on your keyboard online. Detect stuck keys, dead keys, and anti-ghosting issues. Free browser-based keyboard tester with N-key rollover detection.">
+<link rel="canonical" href="https://mousetesthq.com/keyboard-test.html">
+<meta property="og:title" content="Keyboard Tester — Check Keys & Anti-Ghosting">
+<meta property="og:description" content="Visualize every keypress and detect ghosting issues on your keyboard.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=2">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%233b82f6'/%3E%3Ctext x='50' y='66' font-family='sans-serif' font-size='58' font-weight='800' text-anchor='middle' fill='white'%3EM%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">M</span><span>MouseTestHQ</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="primary-nav" aria-label="Primary">
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Tools <svg viewBox="0 0 12 12" class="caret" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="cps-test.html">CPS Test</a>
+          <a href="keyboard-test.html" class="active">Keyboard Tester</a>
+          <a href="mouse-polling-rate.html">Polling Rate</a>
+          <a href="latency-test.html">Click Latency</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Learn <svg viewBox="0 0 12 12" class="caret" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="blog/index.html">All guides</a>
+          <a href="blog/best-gaming-mouse-2026.html">Best Mouse 2026</a>
+          <a href="blog/best-mechanical-keyboard-2026.html">Best Keyboard 2026</a>
+          <a href="blog/what-is-polling-rate.html">What is Polling Rate?</a>
+          <a href="blog/cpi-vs-dpi.html">CPI vs DPI</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Company <svg viewBox="0 0 12 12" class="caret" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+        </div>
+      </div>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+    <section class="tool">
+      <div class="tool-header">
+        <h1>Keyboard Tester & Anti-Ghosting Check</h1>
+        <p>Click the test area first, then press any keys. They light up while held. Try the anti-ghosting test below to verify rollover.</p>
+      </div>
+
+      <div class="info-banner">
+        <strong>Tip:</strong> Click anywhere on this page first so the keyboard receives input. Then press keys freely — including modifier combinations (Shift, Ctrl, Alt).
+      </div>
+
+      <div id="keyboard" class="kbd-stage" tabindex="0" aria-label="Keyboard test area">
+        <div class="kbd-section-title">MAIN</div>
+        <div class="kbd-row" id="row-function"></div>
+        <div class="kbd-row" id="row-numbers"></div>
+        <div class="kbd-row" id="row-qwerty"></div>
+        <div class="kbd-row" id="row-asdf"></div>
+        <div class="kbd-row" id="row-zxcv"></div>
+        <div class="kbd-row" id="row-bottom"></div>
+
+        <div class="kbd-section-title">NAVIGATION</div>
+        <div class="kbd-row" id="row-nav"></div>
+
+        <div class="kbd-section-title">NUMPAD</div>
+        <div class="kbd-row" id="row-numpad-top"></div>
+        <div class="kbd-row" id="row-numpad-mid"></div>
+        <div class="kbd-row" id="row-numpad-bot"></div>
+
+        <div class="kbd-log" id="kbd-log" aria-live="polite">Press any key to begin. Last 6 keys will appear here.</div>
+
+        <div class="kbd-anti-ghosting">
+          <h3>Anti-Ghosting / N-Key Rollover Test</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Press the highlighted key combination <strong>simultaneously</strong>. The keys turn green if all are detected, red if any are dropped (ghosted).</p>
+          <div style="margin-top: 0.75rem;">
+            <button class="btn btn-secondary" id="ghost-next">Next combo →</button>
+            <span style="margin-left: 0.75rem; color: var(--text-muted); font-size: 0.9rem;">Score: <strong id="ghost-score" style="color: var(--text);">0 / 0</strong></span>
+          </div>
+          <div class="kbd-test-keys" id="ghost-keys"></div>
+        </div>
+      </div>
+
+      <div class="tool-controls" style="margin-top: 1.25rem;">
+        <button class="btn btn-secondary" id="kbd-clear">Clear log</button>
+      </div>
+
+      <article class="tool-explainer">
+        <h2>About This Tester</h2>
+        <p>This page listens to keyboard events globally and visualizes every key you press using <code>event.code</code>, which gives the physical key location regardless of your keyboard layout. That's how we can correctly distinguish left vs. right Shift or Numpad 1 from the number row 1.</p>
+
+        <h3>What is Key Ghosting?</h3>
+        <p>Most cheap keyboards use a 2KRO (2-key rollover) matrix or worse. This means pressing 3+ keys simultaneously can cause some inputs to be "ghosted" — the keyboard fails to register one or more presses. Modern gaming keyboards offer <strong>N-key rollover (NKRO)</strong>, meaning every keypress is registered independently. The test above lets you verify your keyboard's actual behavior.</p>
+
+        <h3>How the Anti-Ghosting Test Works</h3>
+        <ol>
+          <li>Click "Next combo" to load a random combination of keys.</li>
+          <li>Press and hold <em>all</em> the highlighted keys at the same time.</li>
+          <li>If every key lights up green, your keyboard correctly registered all of them.</li>
+          <li>If any key stays red, your keyboard ghosted that input.</li>
+        </ol>
+
+        <h3>Common Ghosting Patterns</h3>
+        <ul>
+          <li><strong>WASD + Shift:</strong> The most common gaming failure — moving + sprinting simultaneously.</li>
+          <li><strong>WASD + Space:</strong> Critical for FPS games — moving and jumping.</li>
+          <li><strong>Modifier conflicts:</strong> Some boards fail when you press three modifiers at once (Ctrl+Shift+Alt).</li>
+        </ul>
+
+        <h3>Privacy</h3>
+        <p>Keyboard events are processed entirely in your browser. We never log, transmit, or store what you type.</p>
+      </article>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="brand"><span class="brand-mark">M</span><span>MouseTestHQ</span></a>
+        <p>Free browser-based tools and original buying guides for mouse and keyboard enthusiasts. Independent. Tested. No paid placements.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="cps-test.html">CPS Test</a></li>
+          <li><a href="keyboard-test.html">Keyboard Tester</a></li>
+          <li><a href="mouse-polling-rate.html">Polling Rate</a></li>
+          <li><a href="latency-test.html">Latency Test</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="blog/index.html">All guides</a></li>
+          <li><a href="blog/best-gaming-mouse-2026.html">Best Mouse 2026</a></li>
+          <li><a href="blog/best-mechanical-keyboard-2026.html">Best Keyboard 2026</a></li>
+          <li><a href="blog/what-is-polling-rate.html">Polling Rate Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms</a></li>
+          <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> MouseTestHQ. All rights reserved.</span>
+      <span>Built for gamers, by hardware nerds.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-banner" role="dialog" aria-label="Cookie consent">
+  <p>We use cookies for anonymized analytics. By clicking Accept, you consent as described in our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+  <div class="row">
+    <button class="btn btn-primary" data-cookie-action="accept">Accept</button>
+    <button class="btn btn-secondary" data-cookie-action="reject">Reject</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/keyboard.js"></script>
+</body>
+</html>

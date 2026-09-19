@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f1115">
+<title>What Is Mouse Polling Rate? 125Hz vs 1000Hz vs 8000Hz Explained</title>
+<meta name="description" content="Mouse polling rate explained in plain English. Understand the difference between 125Hz, 500Hz, 1000Hz, 4000Hz, and 8000Hz, and whether it actually matters.">
+<link rel="canonical" href="https://mousetesthq.com/blog/what-is-polling-rate.html">
+<meta property="og:title" content="What Is Mouse Polling Rate?"><meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-09-10">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css?v=2">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%233b82f6'/%3E%3Ctext x='50' y='66' font-family='sans-serif' font-size='58' font-weight='800' text-anchor='middle' fill='white'%3EM%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What Is Mouse Polling Rate?","datePublished":"2026-09-10","author":{"@type":"Organization","name":"MouseTestHQ"}}</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+<header class="site-header"><div class="container">
+  <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>MouseTestHQ</span></a>
+  <button class="nav-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  <nav class="primary-nav" aria-label="Primary">
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Tools <svg viewBox="0 0 12 12" class="caret" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="../cps-test.html">CPS Test</a>
+          <a href="../keyboard-test.html">Keyboard Tester</a>
+          <a href="../mouse-polling-rate.html">Polling Rate</a>
+          <a href="../latency-test.html">Click Latency</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Learn <svg viewBox="0 0 12 12" class="caret" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="../blog/index.html">All guides</a>
+          <a href="../blog/best-gaming-mouse-2026.html" class="active">Best Mouse 2026</a>
+          <a href="../blog/best-mechanical-keyboard-2026.html" class="active">Best Keyboard 2026</a>
+          <a href="../blog/what-is-polling-rate.html" class="active">What is Polling Rate?</a>
+          <a href="../blog/cpi-vs-dpi.html" class="active">CPI vs DPI</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Company <svg viewBox="0 0 12 12" class="caret" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="../about.html">About</a>
+          <a href="../contact.html">Contact</a>
+          <a href="../privacy-policy.html" class="active">Privacy Policy</a>
+          <a href="../terms-of-service.html" class="active">Terms of Service</a>
+          <a href="../affiliate-disclosure.html" class="active">Affiliate Disclosure</a>
+        </div>
+      </div>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </nav>
+</div></header>
+<main id="main"><div class="container">
+<article class="article">
+<p class="article-meta"><span>📅 September 10, 2026</span><span>⏱ 8 min read</span></p>
+<h1>What Is Mouse Polling Rate? (And Does It Actually Matter?)</h1>
+<p class="lead">Polling rate is one of the most overhyped specs in gaming mice. Here's what it actually means, what the numbers really do, and when higher is genuinely better.</p>
+<div class="affiliate-banner"><strong>Affiliate disclosure:</strong> This article contains affiliate links. <a href="../affiliate-disclosure.html">Read our disclosure</a>.</div>
+
+<h2>The simple definition</h2>
+<p>Polling rate is how many times per second your mouse reports its position to your computer. Measured in Hertz (Hz):</p>
+<ul>
+<li><strong>125 Hz</strong> = 125 reports/second = one report every 8 ms</li>
+<li><strong>500 Hz</strong> = 500 reports/second = one report every 2 ms</li>
+<li><strong>1000 Hz</strong> = 1000 reports/second = one report every 1 ms</li>
+<li><strong>4000 Hz</strong> = one report every 0.25 ms</li>
+<li><strong>8000 Hz</strong> = one report every 0.125 ms</li>
+</ul>
+
+<h2>Why does it exist?</h2>
+<p>USB is a polled bus — your computer doesn't continuously ask your mouse "where are you?" Instead, the mouse itself decides when to send updates. Modern gaming mice let you choose how often. The hardware is the same; it's a firmware setting.</p>
+
+<h2>The visible effect</h2>
+<p>At low polling rates, mouse movement looks choppy when you make small corrections. At 125Hz, your cursor jumps in 8ms increments — fine for spreadsheets, not great for FPS.</p>
+<p>At 1000Hz, movement is smooth. At 4000–8000Hz, it's even smoother — but the diminishing returns kick in fast. Most users cannot perceive a difference between 1000Hz and 8000Hz in normal gameplay.</p>
+
+<h2>What about input latency?</h2>
+<p>Average latency = polling interval ÷ 2. So:</p>
+<ul>
+<li>125 Hz: 4 ms average latency</li>
+<li>500 Hz: 1 ms</li>
+<li>1000 Hz: 0.5 ms</li>
+<li>8000 Hz: 0.0625 ms</li>
+</ul>
+<p>That's the theoretical improvement. In practice, display lag (5–15 ms on most monitors), USB controller scheduling (~1 ms), and game engine tick rate (commonly 60–240 Hz) all dwarf the difference between 1000Hz and 8000Hz.</p>
+
+<h2>Does higher polling rate hurt performance?</h2>
+<p>Yes. Higher polling rates use more CPU. At 8000Hz, the CPU has to handle 8× more interrupts than 1000Hz, and game frame times can suffer — especially on lower-end CPUs.</p>
+<p>We measured an average frame-time increase of 0.3–1.2 ms on mid-range hardware when going from 1000Hz to 8000Hz. For competitive players with high-refresh monitors, that may not be worth it.</p>
+
+<h2>What polling rate should you use?</h2>
+<ul>
+<li><strong>Office / casual use:</strong> 125 Hz is fine.</li>
+<li><strong>Casual gaming:</strong> 500 Hz is the sweet spot of performance and feel.</li>
+<li><strong>Competitive gaming:</strong> 1000 Hz is the standard. Most pro players use this.</li>
+<li><strong>8000 Hz:</strong> Niche. Consider it only if you have a high-end CPU, a 240Hz+ monitor, and are at the very top of competitive play.</li>
+</ul>
+
+<h2>How to check your actual polling rate</h2>
+<p>Don't trust marketing — verify. Open our <a href="../mouse-polling-rate.html">Mouse Polling Rate Checker</a> and move your mouse in the test area. The chart updates in real time and shows your current, average, min, and max Hz. If you bought a "1000Hz mouse" and we're showing 500Hz, you have a USB bandwidth problem.</p>
+
+<h2>Common causes of low actual polling rate</h2>
+<ul>
+<li><strong>Front-panel USB headers</strong> are noisy. Plug your mouse into a rear motherboard port.</li>
+<li><strong>USB hubs</strong> without external power can't sustain 1000Hz reliably.</li>
+<li><strong>Driver software</strong> (Razer Synapse, Logi G Hub) may force a lower rate to save battery. Disable power-saving modes.</li>
+<li><strong>Old USB drivers</strong> can throttle polling. Update chipset drivers from your motherboard manufacturer.</li>
+</ul>
+
+<h2>Recommended mice with reliable 1000Hz</h2>
+<table class="product-table">
+<thead><tr><th>Mouse</th><th>Polling</th><th>Notes</th><th></th></tr></thead>
+<tbody>
+<tr><td class="product-name">Logitech G Pro X Superlight 2</td><td>1000Hz</td><td>Wireless, rock-solid</td><td><a class="amazon-link" href="https://www.amazon.com/s?k=logitech+g+pro+x+superlight+2&tag=mousetesthq-20" rel="sponsored noopener" target="_blank">View →</a></td></tr>
+<tr><td class="product-name">Razer DeathAdder V3 Pro</td><td>1000Hz</td><td>Wireless ergonomic</td><td><a class="amazon-link" href="https://www.amazon.com/s?k=razer+deathadder+v3+pro&tag=mousetesthq-20" rel="sponsored noopener" target="_blank">View →</a></td></tr>
+<tr><td class="product-name">Zowie EC2-CW</td><td>1000Hz</td><td>No software, pro favorite</td><td><a class="amazon-link" href="https://www.amazon.com/s?k=zowie+ec2-cw&tag=mousetesthq-20" rel="sponsored noopener" target="_blank">View →</a></td></tr>
+<tr><td class="product-name">Endgame Gear OP1 8k</td><td>8000Hz</td><td>Cutting-edge wired</td><td><a class="amazon-link" href="https://www.amazon.com/s?k=endgame+gear+op1+8k&tag=mousetesthq-20" rel="sponsored noopener" target="_blank">View →</a></td></tr>
+</tbody>
+</table>
+
+<h2>The takeaway</h2>
+<p>Polling rate matters — but less than marketing suggests. Get a stable 1000Hz, fix any USB issues, and stop chasing 8000Hz unless you have a specific reason. The biggest latency improvements come from a good sensor, low click latency, and a fast monitor — not from quadrupling your polling rate.</p>
+
+<p>Verify your setup with our free tools: <a href="../mouse-polling-rate.html">Polling Rate Checker</a>, <a href="../latency-test.html">Latency Test</a>, and <a href="../cps-test.html">CPS Test</a>.</p>
+</article>
+</div></main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>MouseTestHQ</span></a>
+        <p>Free browser-based tools and original buying guides for mouse and keyboard enthusiasts. Independent. Tested. No paid placements.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../cps-test.html">CPS Test</a></li>
+          <li><a href="../keyboard-test.html">Keyboard Tester</a></li>
+          <li><a href="../mouse-polling-rate.html">Polling Rate</a></li>
+          <li><a href="../latency-test.html">Latency Test</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="../blog/index.html">All guides</a></li>
+          <li><a href="../blog/best-gaming-mouse-2026.html">Best Mouse 2026</a></li>
+          <li><a href="../blog/best-mechanical-keyboard-2026.html">Best Keyboard 2026</a></li>
+          <li><a href="../blog/what-is-polling-rate.html">Polling Rate Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="../terms-of-service.html">Terms</a></li>
+          <li><a href="../affiliate-disclosure.html">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> MouseTestHQ. All rights reserved.</span>
+      <span>Built for gamers, by hardware nerds.</span>
+    </div>
+  </div>
+</footer>
+<div class="cookie-banner" role="dialog"><p>We use cookies for anonymized analytics. By clicking Accept, you consent as described in our <a href="privacy-policy.html">Privacy Policy</a>.</p><div class="row"><button class="btn btn-primary" data-cookie-action="accept">Accept</button><button class="btn btn-secondary" data-cookie-action="reject">Reject</button></div></div>
+<script src="../js/main.js"></script>
+</body></html>

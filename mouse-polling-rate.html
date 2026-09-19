@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f1115">
+<title>Mouse Polling Rate Tester — Check Hz in Browser | MouseTestHQ</title>
+<meta name="description" content="Measure your mouse's true polling rate (Hz) in your browser. Verify if your 1000Hz, 4000Hz, or 8000Hz gaming mouse is actually delivering the rate you paid for.">
+<link rel="canonical" href="https://mousetesthq.com/mouse-polling-rate.html">
+<meta property="og:title" content="Mouse Polling Rate Tester">
+<meta property="og:description" content="Verify the real polling rate of your mouse.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=2">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%233b82f6'/%3E%3Ctext x='50' y='66' font-family='sans-serif' font-size='58' font-weight='800' text-anchor='middle' fill='white'%3EM%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">M</span><span>MouseTestHQ</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="primary-nav" aria-label="Primary">
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Tools <svg viewBox="0 0 12 12" class="caret" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="cps-test.html">CPS Test</a>
+          <a href="keyboard-test.html">Keyboard Tester</a>
+          <a href="mouse-polling-rate.html" class="active">Polling Rate</a>
+          <a href="latency-test.html">Click Latency</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Learn <svg viewBox="0 0 12 12" class="caret" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="blog/index.html">All guides</a>
+          <a href="blog/best-gaming-mouse-2026.html">Best Mouse 2026</a>
+          <a href="blog/best-mechanical-keyboard-2026.html">Best Keyboard 2026</a>
+          <a href="blog/what-is-polling-rate.html">What is Polling Rate?</a>
+          <a href="blog/cpi-vs-dpi.html">CPI vs DPI</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Company <svg viewBox="0 0 12 12" class="caret" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+        </div>
+      </div>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+    <section class="tool">
+      <div class="tool-header">
+        <h1>Mouse Polling Rate Checker</h1>
+        <p>Move your mouse continuously inside the box below. The chart updates in real time with your measured Hz.</p>
+      </div>
+
+      <div class="info-banner">
+        <strong>How it works:</strong> Your mouse reports its position to your computer at a fixed rate (the polling rate, in Hz). The faster the rate, the smoother the cursor movement. Standard mice run at 125Hz, gaming mice at 1000Hz, and cutting-edge models at 4000Hz or 8000Hz.
+      </div>
+
+      <div id="poll-stage" class="cps-stage idle" style="min-height: 280px;">
+        <div class="big-number" id="poll-current">0</div>
+        <div class="label">HZ — Current Polling Rate</div>
+        <div class="timer" id="poll-status">Move your mouse inside this box to start</div>
+      </div>
+
+      <div class="poll-canvas-wrap">
+        <canvas id="pollChart" aria-label="Polling rate history chart"></canvas>
+      </div>
+
+      <div class="poll-stats">
+        <div class="poll-stat">
+          <div class="stat" id="poll-current-stat">0</div>
+          <div class="stat-label">Current Hz</div>
+        </div>
+        <div class="poll-stat">
+          <div class="stat" id="poll-avg">0</div>
+          <div class="stat-label">Average Hz</div>
+        </div>
+        <div class="poll-stat">
+          <div class="stat" id="poll-min">0</div>
+          <div class="stat-label">Min Hz</div>
+        </div>
+        <div class="poll-stat">
+          <div class="stat" id="poll-max">0</div>
+          <div class="stat-label">Max Hz</div>
+        </div>
+        <div class="poll-stat">
+          <div class="stat" id="poll-stability">0%</div>
+          <div class="stat-label">Stability</div>
+        </div>
+      </div>
+
+      <div class="tool-controls" style="margin-top: 1.5rem;">
+        <button class="btn btn-secondary" id="poll-reset">Reset</button>
+      </div>
+
+      <article class="tool-explainer">
+        <h2>Understanding Polling Rate</h2>
+        <p>Polling rate is how many times per second your mouse reports its position to your computer. Measured in Hertz (Hz), a 1000Hz mouse reports its position 1000 times per second — once every 1 millisecond. Higher rates reduce the gap between movements, which can feel smoother, especially at high DPI.</p>
+
+        <h3>Common Polling Rates</h3>
+        <ul>
+          <li><strong>125 Hz:</strong> Office mice. 8ms between reports — fine for productivity, feels laggy for FPS.</li>
+          <li><strong>500 Hz:</strong> Mid-range gaming. 2ms between reports — good compromise.</li>
+          <li><strong>1000 Hz:</strong> The gaming standard. 1ms between reports. Recommended for competitive play.</li>
+          <li><strong>2000–4000 Hz:</strong> Modern premium mice (Razer, Logitech, Endgame Gear). Requires high-end CPU.</li>
+          <li><strong>8000 Hz:</strong> Cutting edge (Razer 8K Hz, ASUS ROG). 0.125ms reports. Measurable but mostly imperceptible improvement over 1000Hz for most users.</li>
+        </ul>
+
+        <h3>Why Stable Polling Matters</h3>
+        <p>It's not enough for a mouse to <em>average</em> 1000Hz — it should report <em>consistently</em> at 1000Hz. Dropouts to 500Hz or 250Hz can feel like micro-stutters. The "Stability" metric above shows how close the actual values stay to the average. 95%+ is excellent; below 80% suggests USB polling issues or a flaky mouse.</p>
+
+        <h3>How We Measure</h3>
+        <p>We sample <code>mousemove</code> events and divide the event count by elapsed time over rolling 1-second windows. This reflects what your computer actually receives, which is the only thing that matters for feel. We can't read the hardware's "advertised" rate directly — but if your mouse claims 1000Hz and we measure 1000Hz, that's a match.</p>
+
+        <h3>Why Your Measurement Might Differ from Advertised</h3>
+        <ul>
+          <li><strong>USB port bandwidth:</strong> Some hubs and front-panel headers can't sustain 1000Hz.</li>
+          <li><strong>Operating system:</strong> macOS caps some mice at lower rates. Windows 11 with raw input works best.</li>
+          <li><strong>Mousepad / surface:</strong> Optical sensors need motion to generate events. Move the mouse at least 10 cm/s.</li>
+          <li><strong>Driver settings:</strong> Some software force-locks the rate. Razer Synapse and Logi G Hub expose this.</li>
+        </ul>
+
+        <h3>How to Increase Your Polling Rate</h3>
+        <ol>
+          <li>Open your mouse's driver software (Razer Synapse, Logi G Hub, SteelSeries GG, etc.)</li>
+          <li>Find Polling Rate settings — usually under Performance or Hardware</li>
+          <li>Select 1000Hz (or higher if supported)</li>
+          <li>Plug your mouse directly into a rear motherboard USB port, not a hub</li>
+          <li>Re-test here to confirm</li>
+        </ol>
+      </article>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="brand"><span class="brand-mark">M</span><span>MouseTestHQ</span></a>
+        <p>Free browser-based tools and original buying guides for mouse and keyboard enthusiasts. Independent. Tested. No paid placements.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="cps-test.html">CPS Test</a></li>
+          <li><a href="keyboard-test.html">Keyboard Tester</a></li>
+          <li><a href="mouse-polling-rate.html">Polling Rate</a></li>
+          <li><a href="latency-test.html">Latency Test</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="blog/index.html">All guides</a></li>
+          <li><a href="blog/best-gaming-mouse-2026.html">Best Mouse 2026</a></li>
+          <li><a href="blog/best-mechanical-keyboard-2026.html">Best Keyboard 2026</a></li>
+          <li><a href="blog/what-is-polling-rate.html">Polling Rate Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms</a></li>
+          <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> MouseTestHQ. All rights reserved.</span>
+      <span>Built for gamers, by hardware nerds.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-banner" role="dialog" aria-label="Cookie consent">
+  <p>We use cookies for anonymized analytics. By clicking Accept, you consent as described in our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+  <div class="row">
+    <button class="btn btn-primary" data-cookie-action="accept">Accept</button>
+    <button class="btn btn-secondary" data-cookie-action="reject">Reject</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/polling.js"></script>
+</body>
+</html>

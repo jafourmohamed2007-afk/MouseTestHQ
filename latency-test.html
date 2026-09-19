@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f1115">
+<title>Click Latency Test — Reaction Time Tester | MouseTestHQ</title>
+<meta name="description" content="Measure your click latency and reaction time. Free browser-based latency test with histogram, average, and best scores.">
+<link rel="canonical" href="https://mousetesthq.com/latency-test.html">
+<meta property="og:title" content="Click Latency Test — Reaction Time">
+<meta property="og:description" content="Benchmark your click latency and reaction time.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=2">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%233b82f6'/%3E%3Ctext x='50' y='66' font-family='sans-serif' font-size='58' font-weight='800' text-anchor='middle' fill='white'%3EM%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">M</span><span>MouseTestHQ</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="primary-nav" aria-label="Primary">
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Tools <svg viewBox="0 0 12 12" class="caret" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="cps-test.html">CPS Test</a>
+          <a href="keyboard-test.html">Keyboard Tester</a>
+          <a href="mouse-polling-rate.html">Polling Rate</a>
+          <a href="latency-test.html" class="active">Click Latency</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Learn <svg viewBox="0 0 12 12" class="caret" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="blog/index.html">All guides</a>
+          <a href="blog/best-gaming-mouse-2026.html">Best Mouse 2026</a>
+          <a href="blog/best-mechanical-keyboard-2026.html">Best Keyboard 2026</a>
+          <a href="blog/what-is-polling-rate.html">What is Polling Rate?</a>
+          <a href="blog/cpi-vs-dpi.html">CPI vs DPI</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Company <svg viewBox="0 0 12 12" class="caret" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+        </div>
+      </div>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+    <section class="tool">
+      <div class="tool-header">
+        <h1>Click Latency & Reaction Time Test</h1>
+        <p>Wait for the green screen, then click as fast as possible. Clicking before green counts as a false start.</p>
+      </div>
+
+      <div class="info-banner">
+        <strong>Important:</strong> This measures <em>perceptual</em> + <em>input</em> latency combined — i.e., how fast you see a stimulus and click in response. It is NOT a measure of pure hardware click latency (that requires specialized equipment like a $500+ test rig).
+      </div>
+
+      <div class="tool-controls" role="group" aria-label="Number of rounds">
+        <span style="color: var(--text-muted); align-self: center; margin-right: 0.5rem;">Rounds:</span>
+        <button class="btn btn-secondary" data-rounds="5">5</button>
+        <button class="btn btn-secondary active" data-rounds="10">10</button>
+        <button class="btn btn-secondary" data-rounds="20">20</button>
+      </div>
+
+      <div id="latency-stage" class="latency-stage waiting" tabindex="0" role="button" aria-label="Click to start a round">
+        <div class="latency-msg" id="latency-msg">Click to start — round 1 / 10</div>
+      </div>
+
+      <div class="latency-stats">
+        <div class="poll-stat"><div class="stat" id="lat-best">—</div><div class="stat-label">Best (ms)</div></div>
+        <div class="poll-stat"><div class="stat" id="lat-avg">—</div><div class="stat-label">Average (ms)</div></div>
+        <div class="poll-stat"><div class="stat" id="lat-median">—</div><div class="stat-label">Median (ms)</div></div>
+        <div class="poll-stat"><div class="stat" id="lat-worst">—</div><div class="stat-label">Worst (ms)</div></div>
+        <div class="poll-stat"><div class="stat" id="lat-std">—</div><div class="stat-label">Std Dev</div></div>
+        <div class="poll-stat"><div class="stat" id="lat-progress">0 / 10</div><div class="stat-label">Progress</div></div>
+      </div>
+
+      <div class="latency-histogram" id="latency-histogram" aria-label="Latency histogram"></div>
+
+      <div class="tool-controls" style="margin-top: 1.5rem;">
+        <button class="btn btn-secondary" id="lat-reset">Reset</button>
+      </div>
+
+      <article class="tool-explainer">
+        <h2>About This Test</h2>
+        <p>This is a reaction-time test adapted for mouse input. The browser shows a colored box; the time between the box turning green and your click is measured to the nearest millisecond using <code>performance.now()</code>. We run multiple rounds to give you a stable average and visualize the distribution as a histogram.</p>
+
+        <h3>What Your Score Means</h3>
+        <ul>
+          <li><strong>&lt; 200 ms:</strong> Excellent — pro gamer tier. This includes display lag (~5–15 ms) plus your reaction time.</li>
+          <li><strong>200–250 ms:</strong> Good — typical for dedicated FPS players.</li>
+          <li><strong>250–320 ms:</strong> Average — most adults fall here.</li>
+          <li><strong>320+ ms:</strong> Above average — fatigue, distraction, or hardware latency may be factors.</li>
+        </ul>
+
+        <h3>What's Included in Your Score</h3>
+        <ol>
+          <li><strong>Display input lag</strong>: the time your monitor takes to show the green color (~5–15 ms on modern displays, more on TVs).</li>
+          <li><strong>Visual processing</strong>: your eyes detect the change, your brain recognizes it (~150–250 ms).</li>
+          <li><strong>Motor response</strong>: your brain signals your finger to click (~30–50 ms).</li>
+          <li><strong>Mouse click latency</strong>: the time between switch activation and the click event being sent to the OS (1–10 ms on a healthy mouse, more on worn switches).</li>
+          <li><strong>OS / browser latency</strong>: usually &lt;1 ms in modern browsers.</li>
+        </ol>
+
+        <h3>How to Get Your Best Score</h3>
+        <ul>
+          <li>Use a high refresh-rate monitor (144Hz+) — lower display latency helps.</li>
+          <li>Use a wired, low-latency mouse. Wireless adds 1–4 ms typically.</li>
+          <li>Close background tabs and applications — distractions affect reaction time more than people think.</li>
+          <li>Stay hydrated and take breaks — fatigue measurably degrades reaction times.</li>
+          <li>Click with a light, snappy switch — heavy click force slows you down.</li>
+        </ul>
+
+        <h3>Limitations</h3>
+        <p>This test cannot isolate <em>pure</em> mouse click latency (e.g., the time between the switch physically closing and the click event reaching the browser). For that, you need a dedicated device like the <em>Mouse Tester</em> by measuredmechanicalkeyboards.com or a high-speed camera setup. But for most users, this gives a useful end-to-end latency picture.</p>
+      </article>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="brand"><span class="brand-mark">M</span><span>MouseTestHQ</span></a>
+        <p>Free browser-based tools and original buying guides for mouse and keyboard enthusiasts. Independent. Tested. No paid placements.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="cps-test.html">CPS Test</a></li>
+          <li><a href="keyboard-test.html">Keyboard Tester</a></li>
+          <li><a href="mouse-polling-rate.html">Polling Rate</a></li>
+          <li><a href="latency-test.html">Latency Test</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="blog/index.html">All guides</a></li>
+          <li><a href="blog/best-gaming-mouse-2026.html">Best Mouse 2026</a></li>
+          <li><a href="blog/best-mechanical-keyboard-2026.html">Best Keyboard 2026</a></li>
+          <li><a href="blog/what-is-polling-rate.html">Polling Rate Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms</a></li>
+          <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> MouseTestHQ. All rights reserved.</span>
+      <span>Built for gamers, by hardware nerds.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-banner" role="dialog" aria-label="Cookie consent">
+  <p>We use cookies for anonymized analytics. By clicking Accept, you consent as described in our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+  <div class="row">
+    <button class="btn btn-primary" data-cookie-action="accept">Accept</button>
+    <button class="btn btn-secondary" data-cookie-action="reject">Reject</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/latency.js"></script>
+</body>
+</html>

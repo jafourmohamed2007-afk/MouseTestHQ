@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f1115">
+<title>How to Test Your Mouse for Click Latency — A Step-by-Step Guide</title>
+<meta name="description" content="Diagnose a laggy or double-clicking mouse with free browser tools. Step-by-step guide covering polling rate, click latency, and switch health.">
+<link rel="canonical" href="https://mousetesthq.com/blog/how-to-test-mouse-latency.html">
+<meta property="og:title" content="How to Test Your Mouse for Click Latency"><meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-09-12">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css?v=2">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%233b82f6'/%3E%3Ctext x='50' y='66' font-family='sans-serif' font-size='58' font-weight='800' text-anchor='middle' fill='white'%3EM%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Test Your Mouse for Click Latency","datePublished":"2026-09-12","author":{"@type":"Organization","name":"MouseTestHQ"}}</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+<header class="site-header"><div class="container">
+  <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>MouseTestHQ</span></a>
+  <button class="nav-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  <nav class="primary-nav" aria-label="Primary">
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Tools <svg viewBox="0 0 12 12" class="caret" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="../cps-test.html">CPS Test</a>
+          <a href="../keyboard-test.html">Keyboard Tester</a>
+          <a href="../mouse-polling-rate.html">Polling Rate</a>
+          <a href="../latency-test.html">Click Latency</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Learn <svg viewBox="0 0 12 12" class="caret" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="../blog/index.html">All guides</a>
+          <a href="../blog/best-gaming-mouse-2026.html" class="active">Best Mouse 2026</a>
+          <a href="../blog/best-mechanical-keyboard-2026.html" class="active">Best Keyboard 2026</a>
+          <a href="../blog/what-is-polling-rate.html" class="active">What is Polling Rate?</a>
+          <a href="../blog/cpi-vs-dpi.html" class="active">CPI vs DPI</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-trigger" aria-haspopup="true" aria-expanded="false">Company <svg viewBox="0 0 12 12" class="caret" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="nav-dropdown" role="menu">
+          <a href="../about.html">About</a>
+          <a href="../contact.html">Contact</a>
+          <a href="../privacy-policy.html" class="active">Privacy Policy</a>
+          <a href="../terms-of-service.html" class="active">Terms of Service</a>
+          <a href="../affiliate-disclosure.html" class="active">Affiliate Disclosure</a>
+        </div>
+      </div>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </nav>
+</div></header>
+<main id="main"><div class="container">
+<article class="article">
+<p class="article-meta"><span>📅 September 12, 2026</span><span>⏱ 6 min read</span></p>
+<h1>How to Test Your Mouse for Click Latency</h1>
+<p class="lead">Is your mouse lagging? Double-clicking when you only click once? Stuck switches? Here's how to diagnose the problem with free browser tools in 5 minutes.</p>
+<div class="affiliate-banner"><strong>Affiliate disclosure:</strong> This article contains affiliate links. <a href="../affiliate-disclosure.html">Read our disclosure</a>.</div>
+
+<h2>Symptoms of a mouse problem</h2>
+<ul>
+<li>Random clicks register as double-clicks in-game</li>
+<li>Mouse feels "laggy" or "delayed"</li>
+<li>Clicks occasionally don't register at all</li>
+<li>Movement feels choppy</li>
+<li>Buttons feel different than when new (stiffer, mushier, or scratchy)</li>
+</ul>
+
+<h2>The 5-minute diagnostic</h2>
+<h3>Step 1: Check polling rate</h3>
+<p>Open our <a href="../mouse-polling-rate.html">Mouse Polling Rate Checker</a> and move your mouse continuously inside the test area for 5 seconds.</p>
+<p><strong>What you're looking for:</strong></p>
+<ul>
+<li>A stable reading near your mouse's rated rate (most gaming mice: 1000Hz).</li>
+<li>"Stability" score above 90%.</li>
+<li>No big dips to 250Hz or 125Hz.</li>
+</ul>
+<p><strong>If stability is bad:</strong> Move the dongle closer to your mouse (wireless), plug directly into a rear motherboard USB port (wired), and update your chipset drivers.</p>
+
+<h3>Step 2: Test click consistency</h3>
+<p>Open our <a href="../cps-test.html">CPS Test</a> and run several 10-second trials. Note your average CPS each time.</p>
+<p><strong>Healthy behavior:</strong> CPS varies by ±5% between attempts.</p>
+<p><strong>Problematic:</strong> If some attempts are dramatically lower (e.g., 7 CPS then 4 CPS), the click switch may be inconsistent. Try harder clicks — if that fixes it, the spring is weakening. If not, the switch may be dying.</p>
+
+<h3>Step 3: Test click latency</h3>
+<p>Open our <a href="../latency-test.html">Click Latency Test</a> and run 20 rounds. Take the average.</p>
+<p><strong>Typical results:</strong> 200–280 ms for healthy adults on healthy hardware.</p>
+<p><strong>If your average is much higher than usual:</strong> Check display settings — make sure your monitor isn't running at a low refresh rate. A 60Hz monitor adds ~8ms of display latency vs a 144Hz monitor.</p>
+
+<h3>Step 4: Test keyboard rollover</h3>
+<p>If you suspect input issues in games with WASD + Shift/Ctrl combinations, run our <a href="../keyboard-test.html">Keyboard Tester</a>. The anti-ghosting test reveals whether your keyboard handles 4+ simultaneous keys.</p>
+
+<h3>Step 5: Visual + tactile inspection</h3>
+<p>With the mouse unplugged, look at the switches through the mouse feet or shell (some mice are see-through). Press each switch and look for:</p>
+<ul>
+<li>Sticky/return issues — the click doesn't return cleanly</li>
+<li>Visible debris — crumbs or hairs in the switch</li>
+<li>Wobble — the switch tilts in the housing</li>
+</ul>
+
+<h2>Diagnosing the double-click issue</h2>
+<p>Double-clicks when you only click once are the most common mouse failure. It's almost always caused by:</p>
+<ol>
+<li><strong>Worn mechanical switches.</strong> The metal contact inside deforms after millions of clicks. Common after 2–3 years of heavy use.</li>
+<li><strong>Debris in the switch.</strong> Dust or skin oil causing a brief contact bounce.</li>
+<li><strong>Switch bounce.</strong> Genuine electrical bounce on cheaper switches.</li>
+</ol>
+
+<p><strong>Quick fix attempts:</strong></p>
+<ul>
+<li>Blow compressed air into the switch area</li>
+<li>Click the button rapidly 50+ times to dislodge debris</li>
+<li>Open the mouse and inspect the switch — if you see physical damage, replace it (most modern mice use hot-swap or screw-in switches)</li>
+</ul>
+
+<p><strong>Replacement options:</strong></p>
+<ul>
+<li><strong>Kailh GM 8.0</strong> switches for hot-swap compatible mice — long life, crisp feel.</li>
+<li><strong>Omron D2FC-F-7N</strong> if your mouse uses Omron-style switches.</li>
+<li><strong>Huano switches</strong> for Razer mice.</li>
+</ul>
+<p>For mice with optical switches (Razer V3, Logitech G Pro X Superlight), double-clicking is much rarer because there's no metal contact to deform.</p>
+
+<h2>When to replace vs. repair</h2>
+<p><strong>Replace if:</strong></p>
+<ul>
+<li>The mouse is more than 3 years old and showing switch issues</li>
+<li>The scroll wheel encoder is failing (jumps or scrolls opposite)</li>
+<li>The cable frays or wireless connectivity is unreliable</li>
+<li>You want an upgrade anyway</li>
+</ul>
+<p><strong>Repair if:</strong></p>
+<ul>
+<li>The mouse is high-end and under 2 years old</li>
+<li>Only one switch has issues</li>
+<li>You have replacement switches on hand</li>
+</ul>
+
+<h2>If you decide to upgrade</h2>
+<p>Our top picks for reliable mice with optical switches (which resist double-click failure):</p>
+<table class="product-table">
+<thead><tr><th>Mouse</th><th>Switch Type</th><th>Price</th><th></th></tr></thead>
+<tbody>
+<tr><td class="product-name">Razer DeathAdder V3 Pro</td><td>Optical</td><td>$149</td><td><a class="amazon-link" href="https://www.amazon.com/s?k=razer+deathadder+v3+pro&tag=mousetesthq-20" rel="sponsored noopener" target="_blank">View →</a></td></tr>
+<tr><td class="product-name">Logitech G Pro X Superlight 2</td><td>Optical-mechanical hybrid</td><td>$159</td><td><a class="amazon-link" href="https://www.amazon.com/s?k=logitech+g+pro+x+superlight+2&tag=mousetesthq-20" rel="sponsored noopener" target="_blank">View →</a></td></tr>
+<tr><td class="product-name">Endgame Gear OP1 8k</td><td>Optical</td><td>$169</td><td><a class="amazon-link" href="https://www.amazon.com/s?k=endgame+gear+op1+8k&tag=mousetesthq-20" rel="sponsored noopener" target="_blank">View →</a></td></tr>
+</tbody>
+</table>
+
+<h2>The takeaway</h2>
+<p>Most mouse issues are diagnosed in 5 minutes with our free browser tools. Start with the polling rate check — a flaky USB connection is a more common culprit than a bad mouse. If polling is fine and clicks are inconsistent, the switch is probably failing. Optical switches are the modern fix; mechanical switches will eventually fail.</p>
+<p>Test your mouse now: <a href="../mouse-polling-rate.html">Polling Rate</a>, <a href="../cps-test.html">CPS</a>, <a href="../latency-test.html">Latency</a>.</p>
+</article>
+</div></main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="../index.html" class="brand"><span class="brand-mark">M</span><span>MouseTestHQ</span></a>
+        <p>Free browser-based tools and original buying guides for mouse and keyboard enthusiasts. Independent. Tested. No paid placements.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../cps-test.html">CPS Test</a></li>
+          <li><a href="../keyboard-test.html">Keyboard Tester</a></li>
+          <li><a href="../mouse-polling-rate.html">Polling Rate</a></li>
+          <li><a href="../latency-test.html">Latency Test</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="../blog/index.html">All guides</a></li>
+          <li><a href="../blog/best-gaming-mouse-2026.html">Best Mouse 2026</a></li>
+          <li><a href="../blog/best-mechanical-keyboard-2026.html">Best Keyboard 2026</a></li>
+          <li><a href="../blog/what-is-polling-rate.html">Polling Rate Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="../terms-of-service.html">Terms</a></li>
+          <li><a href="../affiliate-disclosure.html">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> MouseTestHQ. All rights reserved.</span>
+      <span>Built for gamers, by hardware nerds.</span>
+    </div>
+  </div>
+</footer>
+<div class="cookie-banner" role="dialog"><p>We use cookies for anonymized analytics. By clicking Accept, you consent as described in our <a href="privacy-policy.html">Privacy Policy</a>.</p><div class="row"><button class="btn btn-primary" data-cookie-action="accept">Accept</button><button class="btn btn-secondary" data-cookie-action="reject">Reject</button></div></div>
+<script src="../js/main.js"></script>
+</body></html>
