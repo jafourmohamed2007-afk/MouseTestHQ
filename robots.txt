@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://mousetesthq.com/sitemap.xml
+Sitemap: https://mousetesthq.online/sitemap.xml

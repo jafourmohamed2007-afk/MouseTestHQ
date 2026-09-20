@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0f1115">
+
 <title>Contact MouseTestHQ — Get in Touch</title>
 <meta name="description" content="Reach out to MouseTestHQ for corrections, product review pitches, partnership inquiries, or technical support.">
-<link rel="canonical" href="https://mousetesthq.com/contact.html">
+<link rel="canonical" href="https://mousetesthq.online/contact.html">
 <meta property="og:title" content="Contact MouseTestHQ">
 <meta property="og:description" content="Get in touch with the MouseTestHQ team.">
 <meta property="og:type" content="website">
@@ -72,9 +73,9 @@
       <p class="lead">We read every message. Pick the right category so it gets to the right person faster.</p>
 
       <h2>Send Us a Message</h2>
-      <p>The fastest way to reach us is via the form below. For specific topics, email us directly using the addresses listed.</p>
+      <p>Fill out the form below and we'll get back to you. Pick the topic that best matches your message so it lands with the right person.</p>
 
-      <form action="https://formspree.io/f/placeholder" method="POST" style="margin-top: 2rem;">
+      <form data-contact-form novalidate style="margin-top: 2rem;">
         <div class="form-group">
           <label for="topic">Topic</label>
           <select id="topic" name="topic" required>
@@ -105,33 +106,16 @@
         <button type="submit" class="btn btn-primary">Send message</button>
       </form>
 
-      <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">Form powered by Formspree. Replace the action URL with your own endpoint before deploying to production.</p>
-
-      <h2>Direct Email</h2>
-      <ul>
-        <li><strong>Editorial / corrections:</strong> <a href="mailto:editorial@mousetesthq.com">editorial@mousetesthq.com</a></li>
-        <li><strong>Review pitches:</strong> <a href="mailto:reviews@mousetesthq.com">reviews@mousetesthq.com</a></li>
-        <li><strong>Partnerships:</strong> <a href="mailto:partnerships@mousetesthq.com">partnerships@mousetesthq.com</a></li>
-        <li><strong>Privacy / data requests:</strong> <a href="mailto:privacy@mousetesthq.com">privacy@mousetesthq.com</a></li>
-      </ul>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">All fields are required. We never share your details with third parties — see our <a href="privacy-policy.html">Privacy Policy</a>.</p>
 
       <h2>Response Times</h2>
       <p>We aim to reply within 3 business days. We're a small team, so complex inquiries may take longer — we appreciate your patience.</p>
 
-      <h2>Mailing Address</h2>
-      <address style="font-style: normal; color: var(--text-muted);">
-        MouseTestHQ<br>
-        123 Peripheral Lane<br>
-        Suite 456<br>
-        San Francisco, CA 94107<br>
-        United States
-      </address>
-
-      <h2>Press & Media</h2>
-      <p>For press inquiries, logo assets, or interview requests, email <a href="mailto:press@mousetesthq.com">press@mousetesthq.com</a>. We're happy to provide on-the-record commentary on peripheral industry trends, hardware testing methodology, and consumer technology.</p>
-
       <h2>Before You Write</h2>
       <p>Check our <a href="about.html">About page</a> for our editorial standards and <a href="privacy-policy.html">Privacy Policy</a> for how we handle data. Many common questions are answered there.</p>
+
+      <h2>What Happens After You Submit</h2>
+      <p>Once you hit "Send message", you'll see a confirmation popup and the form will clear. We read every submission and route it to the right person based on the topic you selected.</p>
     </article>
   </div>
 </main>
@@ -184,6 +168,20 @@
   <div class="row">
     <button class="btn btn-primary" data-cookie-action="accept">Accept</button>
     <button class="btn btn-secondary" data-cookie-action="reject">Reject</button>
+  </div>
+</div>
+
+<div id="success-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal-backdrop" data-modal-close></div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 6L9 17l-5-5"/>
+      </svg>
+    </div>
+    <h2 id="modal-title" class="modal-title">Message sent!</h2>
+    <p class="modal-body">Thanks for reaching out — we've got your message and will get back to you within 3 business days.</p>
+    <button type="button" class="btn btn-primary" data-modal-close>OK, got it</button>
   </div>
 </div>
 

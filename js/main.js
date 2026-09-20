@@ -95,10 +95,50 @@
     if (el) el.textContent = new Date().getFullYear();
   }
 
+  // ---- Contact form (client-only success popup) ----
+  function initContactForm() {
+    const form = document.querySelector('[data-contact-form]');
+    const modal = document.getElementById('success-modal');
+    if (!form || !modal) return;
+
+    function openModal() {
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+      const closeBtn = modal.querySelector('[data-modal-close].btn');
+      if (closeBtn) closeBtn.focus();
+    }
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // Clear all fields (select, input, textarea) so the user sees their message was "sent"
+      form.querySelectorAll('input, textarea, select').forEach(function (el) {
+        if (el.type === 'submit' || el.type === 'button') return;
+        if (el.tagName === 'SELECT') el.selectedIndex = 0;
+        else el.value = '';
+      });
+      openModal();
+    });
+
+    modal.querySelectorAll('[data-modal-close]').forEach(function (btn) {
+      btn.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initTheme();
     initNav();
     initCookieBanner();
     setYear();
+    initContactForm();
   });
 })();
