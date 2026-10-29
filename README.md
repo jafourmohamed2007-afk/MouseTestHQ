@@ -78,8 +78,8 @@ For real development, use any static host:
 ## Pre-launch checklist
 
 - [ ] Replace `mousetesthq.com` references with your real domain
-- [ ] Replace the contact form's Formspree URL (`contact.html`)
-- [ ] Sign up for [Amazon Associates](https://affiliate-program.amazon.com/) and replace `mousetesthq-20` in affiliate links with your tag
+- [x] Contact form uses a client-side success modal (no backend) (`contact.html`)
+- [x] Sign up for [Amazon Associates](https://affiliate-program.amazon.com/) — tracking ID `any09eb6-20` is live in all affiliate links
 - [ ] Apply for [Google AdSense](https://www.google.com/adsense/) — replace ad slot placeholders with real ad code
 - [ ] Set up [Google Search Console](https://search.google.com/search-console/) and submit `sitemap.xml`
 - [ ] Verify all internal links work
