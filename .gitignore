@@ -18,3 +18,13 @@ npm-debug.log*
 dist/
 build/
 node_modules/
+
+# Local scripts, backups and snapshots (never deployed)
+*.py.bak
+*.zip
+affiliate_links_backup.json
+asin-helper/
+
+# Working lists (local only)
+AMAZON_LOOKUP_LIST.txt
+ASIN_WORKLIST.txt

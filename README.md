@@ -77,15 +77,38 @@ For real development, use any static host:
 
 ## Pre-launch checklist
 
-- [ ] Replace `mousetesthq.com` references with your real domain
+- [x] Replace `mousetesthq.com` references with your real domain
 - [x] Contact form uses a client-side success modal (no backend) (`contact.html`)
-- [x] Sign up for [Amazon Associates](https://affiliate-program.amazon.com/) — tracking ID `any09eb6-20` is live in all affiliate links
-- [ ] Apply for [Google AdSense](https://www.google.com/adsense/) — replace ad slot placeholders with real ad code
+- [x] Amazon Associates account created — tracking ID `any09eb6-20`
+- [ ] **Re-enable Amazon affiliate links** (currently disabled pending regional payment setup — see below)
+- [ ] Apply for [Google AdSense](https://www.google.com/adsense/) — pays by bank transfer, works in most countries
 - [ ] Set up [Google Search Console](https://search.google.com/search-console/) and submit `sitemap.xml`
 - [ ] Verify all internal links work
 - [ ] Test the four interactive tools on desktop and mobile
 - [ ] Add real product images to `assets/` and reference them in articles
 - [ ] Update `mousetesthq.com` email addresses in legal pages if desired
+
+## How to re-enable the Amazon buy buttons
+
+The affiliate links and product buy buttons were removed from all articles while the
+regional payment method was being sorted. **All product tables, specifications and prices
+were kept** — only the click-through buttons were removed.
+
+To restore them (one command, takes 10 seconds):
+
+```
+python restore_affiliate.py
+git add -A
+git commit -m "Restore Amazon affiliate links"
+git push origin main
+```
+
+This extracts `affiliate_backup_with_links.zip` over the site and brings back every
+"Check price on Amazon" button with tracking ID `any09eb6-20`.
+
+**Why restore them as soon as payment works:** the buttons cost nothing to run and are the
+only monetisation channel currently wired up. AdSense pays by bank transfer and is available
+in almost every country, so it does not depend on the same payment provider as Stripe.
 
 ## Browser support
 
