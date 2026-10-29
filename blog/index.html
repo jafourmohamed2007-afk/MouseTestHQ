@@ -1,12 +1,13 @@
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mousetesthq.online/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://mousetesthq.online/blog/"}]}</script>
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0f1115">
-<title>Guides & Reviews — Mouse & Keyboard Buying Guides | MouseTestHQ</title>
-<meta name="description" content="In-depth buying guides, reviews, and explainers for mice, keyboards, and gaming peripherals. Find the best gear for your needs.">
-<link rel="canonical" href="https://mousetesthq.online/blog/index.html">
+<title>Mouse & Keyboard Guides — Buying Advice From Real Testing | MouseTestHQ</title>
+<meta name="description" content="Independent buying guides for gaming mice and mechanical keyboards, plus explainers on polling rate, CPI vs DPI and click latency. Tested hands-on, no paid placements.">
+<link rel="canonical" href="https://mousetesthq.online/blog/">
 <meta property="og:title" content="Guides & Reviews — MouseTestHQ">
 <meta property="og:description" content="In-depth peripheral buying guides and reviews.">
 <meta property="og:type" content="website">
@@ -37,13 +38,20 @@
 </div></header>
 
 <main id="main">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="../index.html">Home</a></li><li><span aria-current="page">Blog</span></li></ol></nav>
   <div class="container">
     <section class="hero" style="padding: 3rem 0 1rem;">
       <h1>Guides &amp; Reviews</h1>
       <p>In-depth buying guides, deep-dive explainers, and product comparisons — all written and tested by people who actually use the gear.</p>
     </section>
 
-    <div class="ad-slot ad-slot-leaderboard" aria-label="Advertisement">Advertisement — 728×90</div>
+    <section class="section" style="padding-top: 0.5rem;">
+      <div class="search-box">
+        <label for="blog-search" class="search-label">Search all guides</label>
+        <input type="search" id="blog-search" class="search-input" placeholder="Try &quot;polling rate&quot;, &quot;60% keyboard&quot;, &quot;latency&quot;..." autocomplete="off" spellcheck="false">
+        <p class="search-hint" id="search-hint" aria-live="polite">Showing all 21 guides</p>
+      </div>
+    </section>
 
     <section class="section">
       <h2 class="section-title">Buying Guides</h2>
@@ -164,8 +172,6 @@
       </div>
     </section>
 
-    <div class="ad-slot ad-slot-rectangle" aria-label="Advertisement">Advertisement — 300×250</div>
-
     <section class="section">
       <h2 class="section-title">Explainers</h2>
       <p class="section-subtitle">Understand the specs and the science behind your gear.</p>
@@ -226,6 +232,50 @@
 
 <div class="cookie-banner" role="dialog"><p>We use cookies for anonymized analytics. <a href="../privacy-policy.html">Privacy Policy</a>.</p><div class="row"><button class="btn btn-primary" data-cookie-action="accept">Accept</button><button class="btn btn-secondary" data-cookie-action="reject">Reject</button></div></div>
 
+
+<script>
+(function () {
+  'use strict';
+  var input = document.getElementById('blog-search');
+  var hint = document.getElementById('search-hint');
+  if (!input) return;
+
+  var cards = Array.prototype.slice.call(document.querySelectorAll('main .card-link'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main .section'));
+  var total = cards.length;
+
+  function norm(s) { return (s || '').toLowerCase().trim(); }
+
+  function run() {
+    var q = norm(input.value);
+    var shown = 0;
+    cards.forEach(function (card) {
+      var hay = norm(card.textContent + ' ' + (card.getAttribute('href') || ''));
+      var match = !q || hay.indexOf(q) !== -1;
+      card.style.display = match ? '' : 'none';
+      if (match) shown++;
+    });
+    // Hide section headings whose cards are all hidden
+    sections.forEach(function (sec) {
+      var own = sec.querySelectorAll('.card-link');
+      if (!own.length) return;
+      var vis = Array.prototype.slice.call(own).filter(function (c) { return c.style.display !== 'none'; }).length;
+      var head = sec.querySelector('.section-title');
+      var sub = sec.querySelector('.section-subtitle');
+      if (head) head.style.display = vis ? '' : 'none';
+      if (sub) sub.style.display = vis ? '' : 'none';
+    });
+    if (hint) {
+      hint.textContent = q
+        ? (shown === 0 ? 'No guides match “' + input.value.trim() + '”' : shown + ' guide' + (shown === 1 ? '' : 's') + ' match “' + input.value.trim() + '”')
+        : 'Showing all ' + total + ' guides';
+    }
+  }
+
+  input.addEventListener('input', run);
+  input.addEventListener('search', run);
+})();
+</script>
 <script src="../js/main.js"></script>
 </body>
 </html>
