@@ -1394,3 +1394,16 @@ body.modal-open {
 .mb-log li.bad { color: var(--danger); font-weight: 600; }
 .tool-explainer ol.mb-steps { margin: 0.5rem 0 1rem 1.25rem; }
 .tool-explainer ol.mb-steps li { list-style: decimal; margin-bottom: 0.35rem; color: var(--text-muted); }
+
+/* Phone-width fixes: wide tables and the on-screen keyboard scroll inside
+   their own box instead of making the whole page scroll sideways. */
+@media (max-width: 720px) {
+  .product-table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .kbd-stage { overflow-x: auto; }
+  .kbd-row { justify-content: flex-start; width: max-content; margin-inline: auto; }
+}
