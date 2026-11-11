@@ -14,7 +14,7 @@
   const resetBtn = document.getElementById('cps-reset');
   const shareBtn = document.getElementById('cps-share');
 
-  let duration = 1;
+  let duration = 5;
   let state = 'idle'; // idle | running | done
   let clicks = [];
   let timerHandle = null;

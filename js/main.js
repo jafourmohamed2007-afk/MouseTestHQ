@@ -116,12 +116,15 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      // Clear all fields (select, input, textarea) so the user sees their message was "sent"
-      form.querySelectorAll('input, textarea, select').forEach(function (el) {
-        if (el.type === 'submit' || el.type === 'button') return;
-        if (el.tagName === 'SELECT') el.selectedIndex = 0;
-        else el.value = '';
-      });
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      // Build a real email from the form and hand it to the visitor's mail app.
+      var to = form.getAttribute('data-email');
+      var val = function (id) { var el = form.querySelector('#' + id); return el ? el.value.trim() : ''; };
+      var topicEl = form.querySelector('#topic');
+      var topic = topicEl && topicEl.selectedIndex > 0 ? topicEl.options[topicEl.selectedIndex].text : '';
+      var subject = (topic ? '[' + topic + '] ' : '') + val('subject');
+      var body = val('message') + '\n\n— ' + val('name') + ' (' + val('email') + ')';
+      window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       openModal();
     });
 

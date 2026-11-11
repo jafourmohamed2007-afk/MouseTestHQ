@@ -7,6 +7,7 @@ A static website that provides free browser-based mouse and keyboard testing too
 **Interactive tools** (run entirely in your browser, no backend):
 
 - **CPS Test** (`cps-test.html`) — measure clicks per second with millisecond precision
+- **Double Click Test** (`double-click-test.html`) — test every mouse button and the wheel, detect switch chatter
 - **Keyboard Tester** (`keyboard-test.html`) — visualize every keypress, test anti-ghosting
 - **Mouse Polling Rate Checker** (`mouse-polling-rate.html`) — measure real Hz with live graph
 - **Click Latency Test** (`latency-test.html`) — benchmark reaction time across multiple rounds
@@ -84,11 +85,17 @@ For real development, use any static host:
 - [ ] Apply for [Google AdSense](https://www.google.com/adsense/) — pays by bank transfer, works in most countries
 - [ ] Set up [Google Search Console](https://search.google.com/search-console/) and submit `sitemap.xml`
 - [ ] Verify all internal links work
-- [ ] Test the four interactive tools on desktop and mobile
+- [ ] Test the five interactive tools on desktop and mobile
 - [ ] Add real product images to `assets/` and reference them in articles
 - [ ] Update `mousetesthq.com` email addresses in legal pages if desired
 
 ## How to re-enable the Amazon buy buttons
+
+> **Warning (Nov 2026):** `restore_affiliate.py` extracts an *old full-page snapshot*
+> over every HTML file. Running it now would undo later fixes (doctype/JSON-LD
+> placement, 104 repaired links, AdSense code, the contact form, the Double Click
+> Test). Re-add the affiliate buttons by hand or ask for a script that inserts only
+> the buttons into the current pages.
 
 The affiliate links and product buy buttons were removed from all articles while the
 regional payment method was being sorted. **All product tables, specifications and prices

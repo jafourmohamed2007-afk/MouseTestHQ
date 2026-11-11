@@ -1321,3 +1321,76 @@ body.modal-open {
   font-size: 0.85rem;
   line-height: 1.55;
 }
+
+/* Mouse Button & Double Click Test ------------------------------------------ */
+.mb-select {
+  background: var(--bg-elevated);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+  font: inherit;
+}
+.mb-stage {
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: crosshair;
+  background: var(--bg-elevated);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1rem;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  overscroll-behavior: contain;
+}
+.mb-stage:focus { outline: none; border-color: var(--accent); }
+.mb-mouse { width: 150px; height: auto; }
+.mb-mouse .mb-body { fill: var(--bg-surface); stroke: var(--border-strong); stroke-width: 3; }
+.mb-mouse .mb-btn, .mb-mouse .mb-wheel {
+  fill: var(--bg-surface);
+  stroke: var(--border-strong);
+  stroke-width: 2;
+  transition: fill 80ms ease;
+}
+.mb-mouse .mb-wheel { fill: var(--text-muted); }
+.mb-mouse .tested { fill: rgba(16, 185, 129, 0.35); stroke: var(--success); }
+.mb-mouse .pressed { fill: var(--accent); stroke: var(--accent); }
+.mb-hint { color: var(--text-muted); font-size: 0.9rem; text-align: center; max-width: 460px; }
+.mb-verdict {
+  margin: 1.25rem 0;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  text-align: center;
+}
+.mb-verdict.ok { border-color: var(--success); color: var(--text); }
+.mb-verdict.bad { border-color: var(--danger); background: rgba(239, 68, 68, 0.08); color: var(--text); }
+.mb-table-wrap { overflow-x: auto; }
+.mb-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.mb-table th, .mb-table td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); text-align: left; }
+.mb-table th { color: var(--text-muted); font-weight: 500; font-size: 0.85rem; }
+.mb-table tr.ok td:first-child::after { content: " ✓"; color: var(--success); }
+.mb-table tr.bad td { color: var(--danger); font-weight: 600; }
+.mb-log-title { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+.mb-log {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  max-height: 220px;
+  overflow-y: auto;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  min-height: 3rem;
+  list-style: none;
+}
+.mb-log li { padding: 0.15rem 0; color: var(--text-muted); }
+.mb-log li.bad { color: var(--danger); font-weight: 600; }
+.tool-explainer ol.mb-steps { margin: 0.5rem 0 1rem 1.25rem; }
+.tool-explainer ol.mb-steps li { list-style: decimal; margin-bottom: 0.35rem; color: var(--text-muted); }
